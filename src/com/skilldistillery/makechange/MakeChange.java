@@ -8,6 +8,12 @@ public class MakeChange {
 	
 	
 	public static void main(String[] args) {
+		/* Print the header before anything else
+		 * to clearly show the user
+		 * which program they are using.
+		 */
+		printHeader();
+		
 		// Declare variables and
 		// initialize with relevant method calls
 		double price = getPrice(),
