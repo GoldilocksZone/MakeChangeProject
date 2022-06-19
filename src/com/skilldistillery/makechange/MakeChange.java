@@ -6,7 +6,6 @@ public class MakeChange {
 	// Declare fields
 	static Scanner scanner = new Scanner(System.in); // Scanner to retrieve user input
 	
-	
 	public static void main(String[] args) {
 		/*	Print the header before anything else
 		 *	to clearly show the user
@@ -14,28 +13,22 @@ public class MakeChange {
 		 */
 		printHeader();
 		
-		/*	Step 1.	getPrice()
-		 * 			Get the price of an item from the user.
+		/*	Initialize variables using the relevant methods:
+		 *	
+		 *	getPrice()
+		 * 		Get the price of an item from the user.
 		 * 
-		 *	Step 2.	getMoneyTendered()
-		 * 			Prompt the user to enter the amount of
-		 * 			money tendered.
-		 * 
-		 *	Step 3.	checkAmount()
-		 * 			Evaluate the money tendered relative to the
-		 * 			price of the item, and present a message
-		 * 			if the customer provided too little money or
-		 * 			exact change.
-		 * 			-	If the customer provided too little money,
-		 * 				present options to re-enter money tendered
-		 * 				or cancel the transaction.
-		 * 			-	If the customer provided more than exact
-		 * 				change, output the change to be made.
+		 * 	getMoneyTendered()
+		 * 		Prompt the user to enter the amount of
+		 * 		money tendered.
 		 */
-		checkAmount(getPrice(), getMoneyTendered());
+		double price = getPrice(),
+				moneyTendered = getMoneyTendered();
+
+		checkAmount(price, moneyTendered);
 		
 	}
-
+	
 	public static void printHeader() {
 		System.out.println("*************************");
 		System.out.println("*     Cash Register     *");
@@ -63,31 +56,69 @@ public class MakeChange {
 		 * amount of money tendered.
 		 * This will be the return variable
 		 */
-		double moneyTendered = 0.0;
-		
 		System.out.print("Money Tendered: $");
 		return scanner.nextDouble();
 	}
 	
-	/* Check to see whether the money tendered
-	 * was sufficient to pay for the priced item.
-	 * Send one message if it is insufficient and
-	 * another if it exact change.
+	/*	Evaluate the money tendered relative to the
+	 * 	price of the item, and take appropriate action:
+	 * 	-	If the customer provided too little money,
+	 * 		present options to re-start the transaction
+	 * 		or exit the program.
+	 * 	-	If the customer provided exact change, notify
+	 * 		the user and allow the program to end.
+	 * 	-	If the customer provided more than exact
+	 * 		change, output the change to be made.
 	 */
 	public static void checkAmount(double price, double moneyTendered) {
 		if (price > moneyTendered) {
-			System.out.println("Payment Insufficient");
-			
+			System.err.println("Payment Insufficient");
+			displayMenu();
 		} else if (price == moneyTendered){
-			System.out.println("Exact Change Provided");
+	System.out.println("Exact Change Provided");
+	System.out.println("Transaction Complete");
 		} else {
-			displayChange();
+			makeChange(moneyTendered - price);
 		}
 	}
 	
-	public static void displayChange() {
+	public static void makeChange(double change) {
+		double[] denominations = {20, 10, 5, 1, .25, .10, .05, .01};
+		int numThisDenomination = 0;
 		
+		System.out.println();
+		System.out.println("Provide the customer with the following denominations:");
+		System.out.println("------------------------------------------------------");
+		for (int i = 0; i < denominations.length; i++) {
+			numThisDenomination = (int)Math.floor(change/denominations[i]);
+			System.out.printf("%5.2f: " + numThisDenomination + "\n", denominations[i]);
+			change -= numThisDenomination * denominations[i];
+		}
 	}
 	
+	public static void displayMenu() {
+		int selection = 0;
+		
+		System.out.println("---------------------------");
+		System.out.println("Please select an option from the following menu:");
+		System.out.println("---------------------------");
+		System.out.println("1 - Re-start Transaction");
+		System.out.println("2 - Quit");
+		System.out.println("---------------------------");
+		System.out.print("> ");
+		
+		selection = scanner.nextInt();
+		
+		if (selection == 1) {
+			System.out.println();
+			main(null);
+		} else if (selection == 2) {
+			System.out.println("Exiting program...");
+			System.exit(0);
+		} else {
+			System.err.println("Invalid selection");
+			displayMenu();
+		}
+	}
 }
 
