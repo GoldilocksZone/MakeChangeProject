@@ -3,7 +3,7 @@ package com.skilldistillery.makechange;
 import java.util.Scanner;
 
 public class MakeChange {
-	// Declare fields 
+	// Declare fields
 	static Scanner scanner = new Scanner(System.in); // Scanner to retrieve user input
 
 	public static void main(String[] args) {
