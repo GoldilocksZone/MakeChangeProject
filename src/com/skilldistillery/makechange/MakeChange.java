@@ -21,6 +21,7 @@ public class MakeChange {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		 * getPrice()
 		 * Get the price of an item from the user.
 		 * 
@@ -63,6 +64,12 @@ public class MakeChange {
 		 * 		money tendered.
 		 */
 >>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
+=======
+		 * 	getMoneyTendered()
+		 * 		Prompt the user to enter the amount of
+		 * 		money tendered.
+		 */
+>>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
 		double price = getPrice(),
 				moneyTendered = getMoneyTendered();
 
@@ -71,6 +78,9 @@ public class MakeChange {
 	}
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
+=======
 >>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
 =======
 >>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
@@ -97,6 +107,7 @@ public class MakeChange {
 	 * 			amount of money tendered.
 	 */
 	public static double getMoneyTendered() {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -139,6 +150,15 @@ public class MakeChange {
 		return scanner.nextDouble();
 	}
 >>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
+=======
+		/* Initialize local variable to store the
+		 * amount of money tendered.
+		 * This will be the return variable
+		 */
+		System.out.print("Money Tendered: $");
+		return scanner.nextDouble();
+	}
+>>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
 	
 	/*	Evaluate the money tendered relative to the
 	 * 	price of the item, and take appropriate action:
@@ -151,6 +171,9 @@ public class MakeChange {
 	 * 		change, output the change to be made.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
+=======
 >>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
 =======
 >>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
@@ -162,6 +185,7 @@ public class MakeChange {
 			System.err.println("Payment Insufficient");
 			System.out.println();
 			displayMenu();
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -216,6 +240,16 @@ public class MakeChange {
 	}
 	
 >>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
+=======
+		} else if (price == moneyTendered){
+	System.out.println("Exact Change Provided");
+	System.out.println("Transaction Complete");
+		} else {
+			makeChange(moneyTendered - price);
+		}
+	}
+	
+>>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
 	public static void makeChange(double change) {
 		/*	
 		 * 	Initialize variables
@@ -235,6 +269,7 @@ public class MakeChange {
 		System.out.println("Provide the customer with the following denominations:");
 		System.out.println("------------------------------------------------------");
 		for (int i = 0; i < denominations.length; i++) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -266,10 +301,16 @@ public class MakeChange {
 			System.out.printf("%5.2f: " + numThisDenomination + "\n", denominations[i]);
 			change -= numThisDenomination * denominations[i];
 >>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
+=======
+			numThisDenomination = (int)Math.floor(change/denominations[i]);
+			System.out.printf("%5.2f: " + numThisDenomination + "\n", denominations[i]);
+			change -= numThisDenomination * denominations[i];
+>>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
 		}
 		System.out.println();
 		displayMenu();
 	}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -279,6 +320,9 @@ public class MakeChange {
 	 * 	either when the value entered for money tendered is insufficient or
 	 * 	when a transaction has been successfully completed.
 	 */
+=======
+	
+>>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
 =======
 	
 >>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
@@ -301,11 +345,14 @@ public class MakeChange {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 		selection = (int) scanner.nextInt();
 
 		if (selection == 1) {							//	Start over
 =======
+=======
+>>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
 =======
 >>>>>>> parent of 90e6be2 (Program completely functional. Need to clean up and add a few comments.)
 =======
